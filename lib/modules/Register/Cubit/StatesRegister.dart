@@ -1,0 +1,4 @@
+abstract class StatesRegister{}
+class StateInitiaRegister extends StatesRegister{}
+class StateChangeVisibileterRegisterPassword extends StatesRegister{}
+class StateChangeVisibileterRegisterConfiPassword extends StatesRegister{}
