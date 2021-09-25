@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shop_app_api/modules/Categories/CategoriesScreen.dart';
 import 'package:shop_app_api/modules/Favories/FavoriesScreen.dart';
 import 'package:shop_app_api/modules/Home/HomeScreen.dart';
 import 'package:shop_app_api/modules/Messages/MessagesScreen.dart';
@@ -13,12 +14,16 @@ List<BottomNavigationBarItem> listeNavigationBar=[
     label: "Home",
   ),
   BottomNavigationBarItem(
+    icon: Icon(Icons.category_outlined),
+    label: "Categories",
+  ),
+  BottomNavigationBarItem(
     icon: Icon(Icons.favorite_border_outlined),
     label: "Favorite",
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.message_outlined),
-    label: "Commandes",
+    label: "Messages",
   ),
   BottomNavigationBarItem(
     icon: Icon(Icons.settings_accessibility),
@@ -30,7 +35,8 @@ List<BottomNavigationBarItem> listeNavigationBar=[
 
 List<Widget> listScreens=[
   HomeScreen(),
-  FavoriesScreen(),
+  CategoriesScreen(),
+  MyHomePageState(),
   MessagesScreen(),
   ProfileScreen(),
 ];

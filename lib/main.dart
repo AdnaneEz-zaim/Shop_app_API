@@ -1,6 +1,8 @@
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app_api/shared/Consts/BlocObserver.dart';
+import 'package:shop_app_api/shared/Consts/PageTransitionType.dart';
 import 'package:shop_app_api/shared/Styles/lightTheme.dart';
 import 'package:shop_app_api/shared/netWork/cach_helper.dart';
 import 'package:shop_app_api/shared/netWork/dio_helper.dart';
@@ -32,7 +34,17 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
-      home: CacheHelper.getDataMode('tokin')==true?HomeLayout():
+      home: CacheHelper.getDataMode('tokin')==true?
+      AnimatedSplashScreen(
+          duration: 2200,
+          splash: "assets/images/logo2.png",
+          nextScreen: HomeLayout(),
+          splashTransition: SplashTransition.fadeTransition,
+          backgroundColor: Colors.white,
+          splashIconSize: 200,
+      )
+
+      :
       (CacheHelper.getDataMode('onBoarding')==true?LogingScreen():OnboardingScreen()),
     );
   }
