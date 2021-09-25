@@ -42,6 +42,7 @@ class LogingScreen extends StatelessWidget {
             print(state.email);
               if(state.modelLogin.status){
                 CacheHelper.putDataMode('tokin',true);
+                CacheHelper.SaveData('UserId',state.modelLogin.userData.token);
                 navigateAndFinish(context, HomeLayout());
               }else{
                 print(state.modelLogin.message);

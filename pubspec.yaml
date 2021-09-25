@@ -36,6 +36,7 @@ dependencies:
   animated_splash_screen: ^1.1.0
   expandable: ^5.0.1
   expandable_text: 2.2.0
+  carousel_slider: ^4.0.0
 
   dio: ^4.0.0
 

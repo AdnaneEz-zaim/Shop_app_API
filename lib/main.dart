@@ -2,6 +2,7 @@ import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app_api/shared/Consts/BlocObserver.dart';
+import 'package:shop_app_api/shared/Consts/InformationsNetWork.dart';
 import 'package:shop_app_api/shared/Consts/PageTransitionType.dart';
 import 'package:shop_app_api/shared/Styles/lightTheme.dart';
 import 'package:shop_app_api/shared/netWork/cach_helper.dart';
@@ -21,7 +22,6 @@ void main() {
       print('hadi la valeur' +CacheHelper.getDataMode('onBoarding').toString());
 
     }
-
   runApp(const MyApp());
 }
 
