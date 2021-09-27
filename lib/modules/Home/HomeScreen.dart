@@ -1,15 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:group_button/group_button.dart';
-import 'package:material_segmented_control/material_segmented_control.dart';
 import 'package:shop_app_api/layout/Cubit/CubitHome.dart';
 import 'package:shop_app_api/layout/Cubit/StatesHome.dart';
 import 'package:shop_app_api/shared/Colors/Colors.dart';
 import 'package:shop_app_api/shared/Consts/InformationsNetWork.dart';
-import 'package:shop_app_api/shared/components/CategoryItemNoUTILISABLE.dart';
 import 'package:shop_app_api/shared/components/ListCategiries.dart';
-import 'package:shop_app_api/shared/components/MyCarouselSlider.dart';
 import 'package:shop_app_api/shared/components/ProductItem.dart';
 
 
@@ -93,7 +89,12 @@ class HomeScreen extends StatelessWidget {
 
           physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context,index){
-          return MyProductItem(products[index]);
+          return MyProductItem(
+                  products[index],
+                  (){
+                    HomeCubit.get(context).ChangeFavorite(products[index].id);
+                  }
+                  );
           },
           separatorBuilder: (context,index){ return Container(
           width: double.infinity,

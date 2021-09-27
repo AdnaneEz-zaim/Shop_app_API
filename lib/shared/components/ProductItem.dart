@@ -3,14 +3,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shop_app_api/models/HomeModel.dart';
 import 'package:shop_app_api/shared/Colors/Colors.dart';
+import 'package:shop_app_api/shared/Consts/InformationsNetWork.dart';
 
 import 'MyIconButton.dart';
 
-Widget MyProductItem(Product product)=>Container(
+Widget MyProductItem(Product product,void Function()? changeFavoriete)=>Container(
     child:Column(
       children: [
 
-        Image.network(product.image,
+        Image.network(
+          product.image,
           height: 400,
           width: double.infinity,
           fit: BoxFit.cover,
@@ -19,10 +21,11 @@ Widget MyProductItem(Product product)=>Container(
           decoration: myBoxDecoration(),
           child: Row(
             children: [
-              MyIconButton(Icons.favorite_border_outlined),
-              MyIconButton(Icons.mode_comment_outlined),
+              //favorite_border_outlined
+              favorites[product.id]!?MyIconButton(Icons.favorite,changeFavoriete,color: Colors.red):MyIconButton(Icons.favorite_border_outlined,changeFavoriete),
+              MyIconButton(Icons.mode_comment_outlined,(){}),
               Spacer(),
-              MyIconButton(Icons.shopping_cart_outlined),
+              MyIconButton(Icons.shopping_cart_outlined,(){}),
             ],
           ),
         ),
